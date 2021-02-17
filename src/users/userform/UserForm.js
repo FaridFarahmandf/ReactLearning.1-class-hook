@@ -151,7 +151,7 @@ export default class UserForm extends Component {
         this.props.saveNewUser(this.state.user)
         this.setState({
             user:{
-            id : '' ,
+            id : uuidv4() ,
             name : '' ,
             username : '' ,
             email : ''

@@ -51,12 +51,16 @@ import React, { Component } from 'react'
 import UserForm from '../users/userform/UserForm'
 import UserList from '../users/userList/UserList'
 import axios from 'axios'
+import WithLoading from '../HOC/withLoading/WithLoading'
+
+const UsersWithLoading = WithLoading(UserList)
 
 export default class Users extends Component {
     constructor(props) {
         super(props) ;
         this.state = {
-            userList : []
+            userList : [] , 
+            isLoading : true 
         }
     }
     componentDidMount() {
@@ -65,22 +69,27 @@ export default class Users extends Component {
         .then(data => {
             console.log(data)
             const newState = {...this.state} 
+            newState.isLoading= false ;
             newState.userList = data 
             this.setState(newState)
         })
     }
     saveNewUserList = (newUser) => {
         const newState = {...this.state}
-
         newState.userList.push(newUser)
-        this.setState(newState) ;
+        newState.isLoading = true
+        this.setState(newState) ;   
+        setTimeout(()=>{
+            newState.isLoading = false
+            this.setState(newState) ;   
+        },1000)
 
     }
     render() {
         return (
             <div className='mt-5'>
                 <UserForm saveNewUser={this.saveNewUserList}/>
-                <UserList userList={this.state.userList} />
+                <UsersWithLoading isLoading={this.state.isLoading} userList={this.state.userList} />
             </div>
         )
     }

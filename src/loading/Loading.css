@@ -10,6 +10,14 @@
     background-color: rgba(0, 0, 0, 0.623);
     z-index: 100;
 }
+.loading div {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 10px solid red;
+    border-bottom-color: transparent ;
+    animation: spin 1s linear infinite;
+}
 @keyframes spin {
     from {
         transform: rotate(0);
@@ -17,12 +25,4 @@
     to {
         transform: rotate(360deg);
     }
-}
-.loading div {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: 10px solid red;
-    border-bottom-color: transparent ;
-    animation: spian 1s linear infinite;
 }
