@@ -9,6 +9,7 @@ function Posts() {
     const [postList , setPostList] = useState([])
     const [isLoading , setIsLoading] = useState(true)
 
+    // const PostsWithLoading = WidthLoading(PostList) ;
     const PostsWithLoading = WidthLoading(PostList) ;
     useEffect(() => {
         fetch('https://jsonplaceholder.typicode.com/posts')
@@ -24,7 +25,7 @@ function Posts() {
     },[])
     const addNewPostHandler = (post) => {
         setIsLoading(true)
-        setPostList([...postList , post])
+        setPostList([post , ...postList ])
         setTimeout(()=>{
             setIsLoading(false)
         },1000)
@@ -32,7 +33,8 @@ function Posts() {
     return (
         <div>
             <PostForm addNewPost = {addNewPostHandler} />
-            <PostsWithLoading isLoading={isLoading} title={title} postList={postList} />
+            {/* <PostsWithLoading isLoading={isLoading} title={title} postList={postList} /> */}
+            <PostsWithLoading isLoading={isLoading} postList={postList} />
         </div>
     )
 }
