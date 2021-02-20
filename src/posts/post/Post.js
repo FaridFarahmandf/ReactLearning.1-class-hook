@@ -1,6 +1,8 @@
-import React , {useState} from 'react'
+import React  from 'react'
+import {Link , useLocation} from 'react-router-dom'
+export default function Post(props) {
+    let location = useLocation()
 
-export default function post(props) {
     return (
         <div className='w-25 p-3'>
         <div className='card shadow-sm'>
@@ -20,6 +22,13 @@ export default function post(props) {
                 </div>
   
             </div>
+            <div className='card-footer d-flex justify-content-end'>
+                <Link className='btn btn-outline-dark' to={`${location.pathname}/${props.id}`}>
+                    <i className='bi bi-pencil'></i>
+                </Link>
+            </div>
+            
+
         </div>
     </div>
     )

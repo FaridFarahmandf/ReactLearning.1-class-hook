@@ -10,6 +10,7 @@ import {BrowserRouter ,
         Link ,
         NavLink ,
         Route} from 'react-router-dom'
+import PostEdit from '../../posts/post/PostEdit'
 
 export default class Layout extends Component {
     render() {
@@ -19,7 +20,8 @@ export default class Layout extends Component {
                     <Switch>
                         <Route path='/home'   component={Home} />
                         <Route path='/users' component={Users} />
-                        <Route path='/posts' component={Posts} />
+                        <Route path='/posts' exact component={Posts} />
+                        <Route path='/posts/:id'  component={PostEdit} />
                         <Route path='/todos' component={Todos} />
                         {/* <Route path='/todos/subtodos' component={SubTodos} /> */}
                     </Switch>
