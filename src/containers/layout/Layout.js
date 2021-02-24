@@ -11,6 +11,7 @@ import {BrowserRouter ,
         NavLink ,
         Route} from 'react-router-dom'
 import PostEdit from '../../posts/post/PostEdit'
+import Products from '../../product/Products'
 
 export default class Layout extends Component {
     render() {
@@ -23,6 +24,7 @@ export default class Layout extends Component {
                         <Route path='/posts' exact component={Posts} />
                         <Route path='/posts/:id'  component={PostEdit} />
                         <Route path='/todos' component={Todos} />
+                        <Route path='/products' component={Products} />
                         {/* <Route path='/todos/subtodos' component={SubTodos} /> */}
                     </Switch>
             </BrowserRouter>
