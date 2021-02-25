@@ -1,4 +1,4 @@
-const count = 0 ;
+const count = 0 ; 
 
 const rootReducer = (state = count , action) => {
 
