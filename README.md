@@ -10,3 +10,9 @@
     * Link , NavLink
     * useParams
     * useLocation
+* Redux
+    * redux and react-redux
+    * store 
+    * Reducer
+    * connect 
+    * mapStateToProps , mapDispatchToProps
