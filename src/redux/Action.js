@@ -1,10 +1,10 @@
-const increment = () => {
-  return {
-      type:'INCREMENT', 
-      value : {
-        value : 1
-      }
-  }
-}
+import * as actionType from './ActionType'
 
-export {increment}
+const Add_Products = (value) => {
+  return {  
+      type : actionType.Add_Products , 
+      value : value ,
+    }
+}
+export default Add_Products
+
