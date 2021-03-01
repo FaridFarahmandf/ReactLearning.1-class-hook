@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 // import {increment} from '../redux/Action'
-import Add_Products from '../redux/Action'
+import Add_Products,{Remove_Products} from '../redux/Action'
 
 class Products extends Component {
   Add_Products = () => {
@@ -13,6 +13,9 @@ class Products extends Component {
       price: 4545646,
     })
   }
+  
+  
+ 
   render() {
     console.log('props in products : '+ this.props.products)
     return (
@@ -33,6 +36,7 @@ class Products extends Component {
             </div>
             <button onClick={this.Add_Products}>Add</button>
             <button onClick={this.props.delete}>Delete</button>
+            
           </div>
         ))}
       </div>
@@ -61,6 +65,9 @@ const mapDispatchToProp = (dispatch) => {
     add: (value) => {
       dispatch(Add_Products(value)) 
     },
+    delete:() => {
+      dispatch(Remove_Products())
+    }
   }
 }
 

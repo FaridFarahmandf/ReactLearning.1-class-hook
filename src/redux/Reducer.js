@@ -31,8 +31,16 @@ const initState = {
 const rootReducer = (state = initState , action) => {
     
     switch(action.type) {
+        //addProduct
         case actionType.Add_Products: 
             return { products: [...state.products , action.value] }
+        //deleteProduct 
+        case actionType.Remove_Products : 
+            let newArray = state.products.filter((p) => p.id !== action.value)
+            console.log(newArray) ;
+            return {
+                ...state , products : newArray
+            }
         default : 
             return state
     }
