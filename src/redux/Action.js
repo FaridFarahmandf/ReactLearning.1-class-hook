@@ -17,3 +17,13 @@ export const Remove_Products = () => {
   }
 }
 
+export const Load_ALL_Comments = () => {
+  return{
+    type : actionType.Load_All_Comments
+  }
+}
+export const Delete_Comments = (id) => {
+  return {
+    type:actionType.Delete_Comments , id
+  }
+}

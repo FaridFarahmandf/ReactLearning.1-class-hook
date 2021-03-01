@@ -26,6 +26,7 @@ const initState = {
           price: 45646,
         },
       ],
+    comments : [] ,
 }
 
 const rootReducer = (state = initState , action) => {
@@ -41,6 +42,19 @@ const rootReducer = (state = initState , action) => {
             return {
                 ...state , products : newArray
             }
+        case actionType.Load_All_Comments : 
+            const newState = {...state}
+            fetch('https://jsonplaceholder.typicode.com/comments')
+            .then(res => res.json())
+            .then(ans => {
+                console.log(ans)
+                newState.comments = ans
+            })
+            return newState
+        case actionType.Delete_Comments :
+            let newArr = state.comments.filter(c => c.id !== action.id)
+            console.log(newArr)
+            return {...state , comments : newArr}
         default : 
             return state
     }
