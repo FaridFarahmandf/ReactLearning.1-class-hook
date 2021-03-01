@@ -13,6 +13,7 @@ import {BrowserRouter ,
 import PostEdit from '../../posts/post/PostEdit'
 import Products from '../../product/Products'
 import Comments from '../../comment/Comments'
+import Albums from '../../albums/Albums'
 
 export default class Layout extends Component {
     render() {
@@ -27,6 +28,7 @@ export default class Layout extends Component {
                         <Route path='/todos' component={Todos} />
                         <Route path='/products' component={Products} />
                         <Route path='/comments' component={Comments} />
+                        <Route path='/albums' component={Albums} />
                         {/* <Route path='/todos/subtodos' component={SubTodos} /> */}
                     </Switch>
             </BrowserRouter>
